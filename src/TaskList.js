@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Task from "./Task";
+import Accordion from "react-bootstrap/Accordion";
 
 function TaskList() {
     const [tasks, setTasks] = useState([]);
@@ -23,12 +25,15 @@ function TaskList() {
     }
 
     const taskList = tasks.map((task) =>
-        <li key={task.id}>
-            {task.name} - {task.description}
-        </li>
+        <Task
+            key={task.id}
+            id={task.id}
+            name={task.name}
+            description={task.description}
+        />
     );
     return (
-        <p>{taskList}</p>
+        <Accordion>{taskList}</Accordion>
     );
 }
 
