@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Task from "./Task";
 import Accordion from "react-bootstrap/Accordion";
+import {Container} from "react-bootstrap";
 
 function TaskList() {
     const [tasks, setTasks] = useState([]);
@@ -33,7 +34,9 @@ function TaskList() {
         />
     );
     return (
-        <Accordion>{taskList}</Accordion>
+        <Container fluid="md">
+            <Accordion>{taskList}</Accordion>
+        </Container>
     );
 }
 
